@@ -125,7 +125,7 @@
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -133,6 +133,25 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>Windows.Debug.32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set dll_name=
+
+set dll_current=%dll_name%.dll
+set dll_old=%dll_name%_old.dll
+
+if exist "%dll_old%" (
+	erase "%dll_old%"
+)
+
+if not exist "%dll_old%" (
+	if exist "%dll_current%" (
+		rename "%dll_current%" "%dll_old%"
+		rename "%dll_old%" "%dll_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -152,7 +171,7 @@
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -162,6 +181,25 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>Windows.Release.32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set dll_name=
+
+set dll_current=%dll_name%.dll
+set dll_old=%dll_name%_old.dll
+
+if exist "%dll_old%" (
+	erase "%dll_old%"
+)
+
+if not exist "%dll_old%" (
+	if exist "%dll_current%" (
+		rename "%dll_current%" "%dll_old%"
+		rename "%dll_old%" "%dll_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -180,7 +218,7 @@
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -188,6 +226,25 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>Windows.Debug.64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set dll_name=
+
+set dll_current=%dll_name%.dll
+set dll_old=%dll_name%_old.dll
+
+if exist "%dll_old%" (
+	erase "%dll_old%"
+)
+
+if not exist "%dll_old%" (
+	if exist "%dll_current%" (
+		rename "%dll_current%" "%dll_old%"
+		rename "%dll_old%" "%dll_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -207,7 +264,7 @@
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -217,6 +274,25 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>Windows.Release.64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set dll_name=
+
+set dll_current=%dll_name%.dll
+set dll_old=%dll_name%_old.dll
+
+if exist "%dll_old%" (
+	erase "%dll_old%"
+)
+
+if not exist "%dll_old%" (
+	if exist "%dll_current%" (
+		rename "%dll_current%" "%dll_old%"
+		rename "%dll_old%" "%dll_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

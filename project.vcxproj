@@ -114,7 +114,7 @@
       <ObjectFileName>obj\$(TargetName)\</ObjectFileName>
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
-      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -139,7 +139,7 @@
       <ObjectFileName>obj\$(TargetName)\</ObjectFileName>
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
-      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -165,7 +165,7 @@
       <ObjectFileName>obj\$(TargetName)\</ObjectFileName>
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
-      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -190,7 +190,7 @@
       <ObjectFileName>obj\$(TargetName)\</ObjectFileName>
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
-      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>
