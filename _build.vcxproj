@@ -124,7 +124,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Windows.Debug.32.lib;%(AdditionalDependencies);main.lib</AdditionalDependencies>
+      <AdditionalDependencies>Windows.Debug.32.lib;%(AdditionalDependencies);_main.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>cd $(TargetDir)
@@ -172,7 +172,7 @@ if not exist "%dll_old%" (
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Windows.Release.32.lib;%(AdditionalDependencies);main.lib</AdditionalDependencies>
+      <AdditionalDependencies>Windows.Release.32.lib;%(AdditionalDependencies);_main.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>cd $(TargetDir)
@@ -217,7 +217,7 @@ if not exist "%dll_old%" (
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Windows.Debug.64.lib;%(AdditionalDependencies);main.lib</AdditionalDependencies>
+      <AdditionalDependencies>Windows.Debug.64.lib;%(AdditionalDependencies);_main.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>cd $(TargetDir)
@@ -265,7 +265,7 @@ if not exist "%dll_old%" (
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Windows.Release.64.lib;%(AdditionalDependencies);main.lib</AdditionalDependencies>
+      <AdditionalDependencies>Windows.Release.64.lib;%(AdditionalDependencies);_main.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>cd $(TargetDir)

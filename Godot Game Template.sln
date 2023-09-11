@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_build", "_build.vcxproj", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "project template", "project template.vcxproj", "{AB0141F9-D023-4C7A-964E-A9F4BA654F90}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "main.vcxproj", "{F6387A69-AE21-4893-9170-E2D544A2BAEA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_main", "_main.vcxproj", "{F6387A69-AE21-4893-9170-E2D544A2BAEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
