@@ -21,32 +21,32 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ab0141f9-d023-4c7a-964e-a9f4ba654f90}</ProjectGuid>
-    <RootNamespace>project</RootNamespace>
+    <ProjectGuid>{cb9cf3aa-60d8-44d5-8ba8-21fa60d2ae9c}</ProjectGuid>
+    <RootNamespace>build</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -72,29 +72,33 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)lib\</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
     <IntDir>obj\$(TargetName)\</IntDir>
+    <TargetName>Windows.32</TargetName>
     <IncludePath>$(SolutionDir)include\;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)lib\;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)lib\</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
     <IntDir>obj\$(TargetName)\</IntDir>
+    <TargetName>Windows.32</TargetName>
     <IncludePath>$(SolutionDir)include\;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)lib\;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)lib\</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
     <IntDir>obj\$(TargetName)\</IntDir>
+    <TargetName>Windows.64</TargetName>
     <IncludePath>$(SolutionDir)include\;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)lib\;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)lib\</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
     <IntDir>obj\$(TargetName)\</IntDir>
+    <TargetName>Windows.64</TargetName>
     <IncludePath>$(SolutionDir)include\;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)lib\;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -102,25 +106,45 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AssemblerListingLocation>obj\$(TargetName)\</AssemblerListingLocation>
       <ModuleOutputFile>obj\$(TargetName)\</ModuleOutputFile>
       <ModuleDependenciesFile>obj\$(TargetName)\</ModuleDependenciesFile>
-      <ObjectFileName>obj\$(TargetName)\</ObjectFileName>
+      <ObjectFileName>obj\$(TargetName)\%(RelativeDir)</ObjectFileName>
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
+      <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
-      <SubSystem>
-      </SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>Windows.Debug.32.lib;%(AdditionalDependencies);main.lib</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set dll_name=
+
+set dll_current=%dll_name%.dll
+set dll_old=%dll_name%_old.dll
+
+if exist "%dll_old%" (
+	erase "%dll_old%"
+)
+
+if not exist "%dll_old%" (
+	if exist "%dll_current%" (
+		rename "%dll_current%" "%dll_old%"
+		rename "%dll_old%" "%dll_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -128,7 +152,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -136,24 +160,45 @@
       <AssemblerListingLocation>obj\$(TargetName)\</AssemblerListingLocation>
       <ModuleOutputFile>obj\$(TargetName)\</ModuleOutputFile>
       <ModuleDependenciesFile>obj\$(TargetName)\</ModuleDependenciesFile>
-      <ObjectFileName>obj\$(TargetName)\</ObjectFileName>
+      <ObjectFileName>obj\$(TargetName)\%(RelativeDir)</ObjectFileName>
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
+      <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
-      <SubSystem>
-      </SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>Windows.Release.32.lib;%(AdditionalDependencies);main.lib</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set dll_name=
+
+set dll_current=%dll_name%.dll
+set dll_old=%dll_name%_old.dll
+
+if exist "%dll_old%" (
+	erase "%dll_old%"
+)
+
+if not exist "%dll_old%" (
+	if exist "%dll_current%" (
+		rename "%dll_current%" "%dll_old%"
+		rename "%dll_old%" "%dll_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -162,16 +207,37 @@
       <AssemblerListingLocation>obj\$(TargetName)\</AssemblerListingLocation>
       <ModuleOutputFile>obj\$(TargetName)\</ModuleOutputFile>
       <ModuleDependenciesFile>obj\$(TargetName)\</ModuleDependenciesFile>
-      <ObjectFileName>obj\$(TargetName)\</ObjectFileName>
+      <ObjectFileName>obj\$(TargetName)\%(RelativeDir)</ObjectFileName>
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
+      <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
-      <SubSystem>
-      </SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>Windows.Debug.64.lib;%(AdditionalDependencies);main.lib</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set dll_name=
+
+set dll_current=%dll_name%.dll
+set dll_old=%dll_name%_old.dll
+
+if exist "%dll_old%" (
+	erase "%dll_old%"
+)
+
+if not exist "%dll_old%" (
+	if exist "%dll_current%" (
+		rename "%dll_current%" "%dll_old%"
+		rename "%dll_old%" "%dll_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -179,7 +245,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -187,18 +253,39 @@
       <AssemblerListingLocation>obj\$(TargetName)\</AssemblerListingLocation>
       <ModuleOutputFile>obj\$(TargetName)\</ModuleOutputFile>
       <ModuleDependenciesFile>obj\$(TargetName)\</ModuleDependenciesFile>
-      <ObjectFileName>obj\$(TargetName)\</ObjectFileName>
+      <ObjectFileName>obj\$(TargetName)\%(RelativeDir)</ObjectFileName>
       <XMLDocumentationFileName>obj\$(TargetName)\</XMLDocumentationFileName>
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
+      <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 </AdditionalOptions>
     </ClCompile>
     <Link>
-      <SubSystem>
-      </SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>Windows.Release.64.lib;%(AdditionalDependencies);main.lib</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set dll_name=
+
+set dll_current=%dll_name%.dll
+set dll_old=%dll_name%_old.dll
+
+if exist "%dll_old%" (
+	erase "%dll_old%"
+)
+
+if not exist "%dll_old%" (
+	if exist "%dll_current%" (
+		rename "%dll_current%" "%dll_old%"
+		rename "%dll_old%" "%dll_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
