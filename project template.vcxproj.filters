@@ -13,5 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Inline Files">
+      <UniqueIdentifier>{2cc3b495-c0f3-468f-9a6f-d39b33d64b61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
