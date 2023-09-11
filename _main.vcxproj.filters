@@ -14,17 +14,4 @@
       <UniqueIdentifier>{d05f3dcb-8b38-49cc-9f4f-3fbf4c865635}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="scripts\script template.gdns">
-      <Filter>Script Files</Filter>
-    </None>
-    <None Include="scripts\main.gdnlib">
-      <Filter>Script Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
 </Project>
