@@ -8,38 +8,12 @@
     <Filter Include="Header Files">
       <UniqueIdentifier>{510f32dd-6cb2-433a-8147-86963cee40b4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ui">
-      <UniqueIdentifier>{83b69faf-86e5-452b-82d7-a50879f0223a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\world">
-      <UniqueIdentifier>{390a77fc-2603-4528-8d83-042656aa1d6c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Inline Files">
       <UniqueIdentifier>{08317b8f-7ff6-45a3-bd57-4b4a9e878461}</UniqueIdentifier>
     </Filter>
     <Filter Include="Script Files">
       <UniqueIdentifier>{cbb2aabf-ef65-40c3-9b69-96da3f543774}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\game_controller.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ui\ui.hpp">
-      <Filter>Header Files\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ui\hud.hpp">
-      <Filter>Header Files\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\world\world.hpp">
-      <Filter>Header Files\world</Filter>
-    </ClInclude>
-    <ClInclude Include="include\world\mob.hpp">
-      <Filter>Header Files\world</Filter>
-    </ClInclude>
-    <ClInclude Include="include\world\player.hpp">
-      <Filter>Header Files\world</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="scripts\script template.gdns">
