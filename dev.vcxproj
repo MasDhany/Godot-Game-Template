@@ -140,14 +140,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\game_controller.hpp" />
-    <ClInclude Include="include\ui\hud.hpp" />
-    <ClInclude Include="include\ui\ui.hpp" />
-    <ClInclude Include="include\world\mob.hpp" />
-    <ClInclude Include="include\world\player.hpp" />
-    <ClInclude Include="include\world\world.hpp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="scripts\main.gdnlib" />
     <None Include="scripts\script template.gdns" />
   </ItemGroup>
