@@ -34,9 +34,6 @@
       <Platform>x86</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{b863ba1d-d867-405c-b3b5-309221108f64}</ProjectGuid>
     <Keyword>Android</Keyword>
@@ -88,7 +85,9 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
-  <ImportGroup Label="Shared" />
+  <ImportGroup Label="Shared">
+    <Import Project="dev.vcxitems" Label="Shared" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -163,6 +162,8 @@
       <CppLanguageStandard>c++1z</CppLanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CLanguageStandard>c11</CLanguageStandard>
+      <PreprocessorDefinitions>ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)..\Godot CPP Library\bin\libandroid-debug-x64.a</AdditionalDependencies>
@@ -177,6 +178,8 @@
       </PrecompiledHeaderFile>
       <CppLanguageStandard>c++1z</CppLanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CLanguageStandard>c11</CLanguageStandard>
+      <PreprocessorDefinitions>ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)..\Godot CPP Library\bin\libandroid-release-x64.a</AdditionalDependencies>
@@ -191,6 +194,8 @@
       </PrecompiledHeaderFile>
       <CppLanguageStandard>c++1z</CppLanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CLanguageStandard>c11</CLanguageStandard>
+      <PreprocessorDefinitions>ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)..\Godot CPP Library\bin\libandroid-debug-x86.a</AdditionalDependencies>
@@ -205,6 +210,8 @@
       </PrecompiledHeaderFile>
       <CppLanguageStandard>c++1z</CppLanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CLanguageStandard>c11</CLanguageStandard>
+      <PreprocessorDefinitions>ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)..\Godot CPP Library\bin\libandroid-release-x86.a</AdditionalDependencies>
@@ -219,7 +226,8 @@
       </PrecompiledHeaderFile>
       <CppLanguageStandard>c++1z</CppLanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <CLanguageStandard>Default</CLanguageStandard>
+      <CLanguageStandard>c11</CLanguageStandard>
+      <PreprocessorDefinitions>ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)..\Godot CPP Library\bin\libandroid-debug-arm64.a</AdditionalDependencies>
@@ -236,6 +244,8 @@
       </PrecompiledHeaderFile>
       <CppLanguageStandard>c++1z</CppLanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CLanguageStandard>c11</CLanguageStandard>
+      <PreprocessorDefinitions>ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)..\Godot CPP Library\bin\libandroid-release-arm64.a</AdditionalDependencies>
@@ -250,12 +260,34 @@
       </PrecompiledHeaderFile>
       <CppLanguageStandard>c++1z</CppLanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CLanguageStandard>c11</CLanguageStandard>
+      <PreprocessorDefinitions>ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)..\Godot CPP Library\bin\libandroid-debug-arm.a</AdditionalDependencies>
       <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set lib_ext=so
+set lib_name=
+
+set lib_current=%lib_name%.%lib_ext%
+set lib_old=%lib_name%_old.%lib_ext%
+
+if exist "%lib_old%" (
+	erase "%lib_old%"
+)
+
+if not exist "%lib_old%" (
+	if exist "%lib_current%" (
+		rename "%lib_current%" "%lib_old%"
+		rename "%lib_old%" "%lib_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
@@ -264,12 +296,34 @@
       </PrecompiledHeaderFile>
       <CppLanguageStandard>c++1z</CppLanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <CLanguageStandard>c11</CLanguageStandard>
+      <PreprocessorDefinitions>ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(SolutionDir)..\Godot CPP Library\bin\libandroid-release-arm.a</AdditionalDependencies>
       <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>cd $(TargetDir)
+
+set lib_ext=so
+set lib_name=
+
+set lib_current=%lib_name%.%lib_ext%
+set lib_old=%lib_name%_old.%lib_ext%
+
+if exist "%lib_old%" (
+	erase "%lib_old%"
+)
+
+if not exist "%lib_old%" (
+	if exist "%lib_current%" (
+		rename "%lib_current%" "%lib_old%"
+		rename "%lib_old%" "%lib_current%"
+	)
+)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

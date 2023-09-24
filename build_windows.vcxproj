@@ -18,9 +18,6 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -60,6 +57,7 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
+    <Import Project="dev.vcxitems" Label="Shared" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -110,11 +108,11 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINDOWS;WIN32;_DEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <AssemblerListingLocation>obj\$(TargetName)\</AssemblerListingLocation>
       <ModuleOutputFile>obj\$(TargetName)\</ModuleOutputFile>
       <ModuleDependenciesFile>obj\$(TargetName)\</ModuleDependenciesFile>
@@ -123,6 +121,7 @@
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -133,19 +132,20 @@
     <PreBuildEvent>
       <Command>cd $(TargetDir)
 
-set dll_name=
+set lib_ext=dll
+set lib_name=
 
-set dll_current=%dll_name%.dll
-set dll_old=%dll_name%_old.dll
+set lib_current=%lib_name%.%lib_ext%
+set lib_old=%lib_name%_old.%lib_ext%
 
-if exist "%dll_old%" (
-	erase "%dll_old%"
+if exist "%lib_old%" (
+	erase "%lib_old%"
 )
 
-if not exist "%dll_old%" (
-	if exist "%dll_current%" (
-		rename "%dll_current%" "%dll_old%"
-		rename "%dll_old%" "%dll_current%"
+if not exist "%lib_old%" (
+	if exist "%lib_current%" (
+		rename "%lib_current%" "%lib_old%"
+		rename "%lib_old%" "%lib_current%"
 	)
 )</Command>
     </PreBuildEvent>
@@ -156,11 +156,11 @@ if not exist "%dll_old%" (
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINDOWS;WIN32;NDEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <AssemblerListingLocation>obj\$(TargetName)\</AssemblerListingLocation>
       <ModuleOutputFile>obj\$(TargetName)\</ModuleOutputFile>
       <ModuleDependenciesFile>obj\$(TargetName)\</ModuleDependenciesFile>
@@ -169,6 +169,7 @@ if not exist "%dll_old%" (
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -181,19 +182,20 @@ if not exist "%dll_old%" (
     <PreBuildEvent>
       <Command>cd $(TargetDir)
 
-set dll_name=
+set lib_ext=dll
+set lib_name=
 
-set dll_current=%dll_name%.dll
-set dll_old=%dll_name%_old.dll
+set lib_current=%lib_name%.%lib_ext%
+set lib_old=%lib_name%_old.%lib_ext%
 
-if exist "%dll_old%" (
-	erase "%dll_old%"
+if exist "%lib_old%" (
+	erase "%lib_old%"
 )
 
-if not exist "%dll_old%" (
-	if exist "%dll_current%" (
-		rename "%dll_current%" "%dll_old%"
-		rename "%dll_old%" "%dll_current%"
+if not exist "%lib_old%" (
+	if exist "%lib_current%" (
+		rename "%lib_current%" "%lib_old%"
+		rename "%lib_old%" "%lib_current%"
 	)
 )</Command>
     </PreBuildEvent>
@@ -202,7 +204,7 @@ if not exist "%dll_old%" (
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINDOWS;_DEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -216,6 +218,7 @@ if not exist "%dll_old%" (
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -249,11 +252,11 @@ if not exist "%dll_old%" (
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINDOWS;NDEBUG;BUILD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <AssemblerListingLocation>obj\$(TargetName)\</AssemblerListingLocation>
       <ModuleOutputFile>obj\$(TargetName)\</ModuleOutputFile>
       <ModuleDependenciesFile>obj\$(TargetName)\</ModuleDependenciesFile>
@@ -262,6 +265,7 @@ if not exist "%dll_old%" (
       <SourceDependenciesFile>obj\$(TargetName)\</SourceDependenciesFile>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

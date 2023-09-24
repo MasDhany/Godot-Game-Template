@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{b70746fa-cd5c-4135-a8ec-a0afb943721d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inline Files">
+      <UniqueIdentifier>{a345808d-5b72-436c-85a4-2263ff320498}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script Files">
+      <UniqueIdentifier>{5440ddc6-900f-4491-b42d-657365674d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{dfe0efef-89d7-44e3-8558-60a71fea39be}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)scripts\script template.gdns">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)scripts\main.gdnlib">
+      <Filter>Script Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
