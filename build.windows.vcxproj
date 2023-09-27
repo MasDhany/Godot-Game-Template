@@ -114,6 +114,7 @@
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -150,6 +151,7 @@ call etc/message.bat</Command>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -187,6 +189,7 @@ call etc/message.bat</Command>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -223,6 +226,7 @@ call etc/message.bat</Command>
       <ProgramDataBaseFileName>obj\$(TargetName)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions>/wd4201 /wd4127 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
