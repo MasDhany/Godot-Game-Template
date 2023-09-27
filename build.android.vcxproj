@@ -41,6 +41,7 @@
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <ApplicationType>Android</ApplicationType>
     <ApplicationTypeRevision>3.0</ApplicationTypeRevision>
+    <ProjectName>build.android</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
@@ -86,72 +87,79 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="Shared">
-    <Import Project="dev.vcxitems" Label="Shared" />
+    <Import Project="build.files.vcxitems" Label="Shared" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="property.general.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <Import Project="property.general.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="property.general.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <Import Project="property.general.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <Import Project="property.general.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="property.general.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="property.general.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <Import Project="property.general.props" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)lib\</OutDir>
     <TargetName>libandroid-x64</TargetName>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libandroid-debug-x64\</IntDir>
     <UseMultiToolTask>true</UseMultiToolTask>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)lib\</OutDir>
     <TargetName>libandroid-x64</TargetName>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libandroid-release-x64\</IntDir>
     <UseMultiToolTask>true</UseMultiToolTask>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)lib\</OutDir>
     <TargetName>libandroid-x86</TargetName>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libandroid-debug-x86\</IntDir>
     <UseMultiToolTask>true</UseMultiToolTask>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)lib\</OutDir>
     <TargetName>libandroid-x86</TargetName>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libandroid-release-x86\</IntDir>
     <UseMultiToolTask>true</UseMultiToolTask>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)lib\</OutDir>
     <TargetName>libandroid-arm64</TargetName>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libandroid-debug-arm64\</IntDir>
     <UseMultiToolTask>true</UseMultiToolTask>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)lib\</OutDir>
     <TargetName>libandroid-arm64</TargetName>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libandroid-release-arm64\</IntDir>
     <UseMultiToolTask>true</UseMultiToolTask>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)lib\</OutDir>
     <TargetName>libandroid-arm</TargetName>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libandroid-debug-arm\</IntDir>
     <UseMultiToolTask>true</UseMultiToolTask>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)lib\</OutDir>
     <TargetName>libandroid-arm</TargetName>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libandroid-release-arm\</IntDir>
     <UseMultiToolTask>true</UseMultiToolTask>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -170,6 +178,14 @@
       <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>call etc/update_output.bat .so
+call etc/create_build_files.bat
+call etc/message.bat</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -186,6 +202,14 @@
       <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>call etc/update_output.bat .so
+call etc/create_build_files.bat
+call etc/message.bat</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <ClCompile>
@@ -202,6 +226,14 @@
       <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>call etc/update_output.bat .so
+call etc/create_build_files.bat
+call etc/message.bat</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <ClCompile>
@@ -218,6 +250,14 @@
       <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>call etc/update_output.bat .so
+call etc/create_build_files.bat
+call etc/message.bat</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <ClCompile>
@@ -236,6 +276,14 @@
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
       <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PreBuildEvent>
+      <Command>call etc/update_output.bat .so
+call etc/create_build_files.bat
+call etc/message.bat</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <ClCompile>
@@ -252,6 +300,14 @@
       <AdditionalOptions>-lm %(AdditionalOptions)</AdditionalOptions>
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>call etc/update_output.bat .so
+call etc/create_build_files.bat
+call etc/message.bat</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
@@ -269,25 +325,13 @@
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>cd $(TargetDir)
-
-set lib_ext=so
-set lib_name=
-
-set lib_current=%lib_name%.%lib_ext%
-set lib_old=%lib_name%_old.%lib_ext%
-
-if exist "%lib_old%" (
-	erase "%lib_old%"
-)
-
-if not exist "%lib_old%" (
-	if exist "%lib_current%" (
-		rename "%lib_current%" "%lib_old%"
-		rename "%lib_old%" "%lib_current%"
-	)
-)</Command>
+      <Command>call etc/update_output.bat .so
+call etc/create_build_files.bat
+call etc/message.bat</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
@@ -305,25 +349,13 @@ if not exist "%lib_old%" (
       <LibraryDependencies>%(LibraryDependencies)</LibraryDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>cd $(TargetDir)
-
-set lib_ext=so
-set lib_name=
-
-set lib_current=%lib_name%.%lib_ext%
-set lib_old=%lib_name%_old.%lib_ext%
-
-if exist "%lib_old%" (
-	erase "%lib_old%"
-)
-
-if not exist "%lib_old%" (
-	if exist "%lib_current%" (
-		rename "%lib_current%" "%lib_old%"
-		rename "%lib_old%" "%lib_current%"
-	)
-)</Command>
+      <Command>call etc/update_output.bat .so
+call etc/create_build_files.bat
+call etc/message.bat</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

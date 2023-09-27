@@ -24,7 +24,7 @@
     <ProjectGuid>{cb9cf3aa-60d8-44d5-8ba8-21fa60d2ae9c}</ProjectGuid>
     <RootNamespace>build</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>build_windows</ProjectName>
+    <ProjectName>build.windows</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -57,52 +57,44 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
-    <Import Project="dev.vcxitems" Label="Shared" />
+    <Import Project="build.files.vcxitems" Label="Shared" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="property.general.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="property.general.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="property.general.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="property.general.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)lib\</OutDir>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libwindows-debug-32\</IntDir>
     <TargetName>libwindows-32</TargetName>
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)lib\</OutDir>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libwindows-release-32\</IntDir>
     <TargetName>libwindows-32</TargetName>
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)lib\</OutDir>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libwindows-debug-64\</IntDir>
     <TargetName>libwindows-64</TargetName>
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)lib\</OutDir>
-    <IntDir>obj\$(Configuration)-$(Platform)\</IntDir>
+    <IntDir>obj\libwindows-release-64\</IntDir>
     <TargetName>libwindows-64</TargetName>
-    <IncludePath>$(SolutionDir)include;$(SolutionDir)..\Godot CPP Library\include\godot-headers;$(SolutionDir)..\Godot CPP Library\include\gen;$(SolutionDir)..\Godot CPP Library\include\core;$(SolutionDir)..\Godot CPP Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib;$(SolutionDir)..\Godot CPP Library\bin\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -127,28 +119,16 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Windows-Debug-32.lib</AdditionalDependencies>
+      <AdditionalDependencies>libwindows-debug-32.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>cd $(TargetDir)
-
-set lib_ext=dll
-set lib_name=
-
-set lib_current=%lib_name%.%lib_ext%
-set lib_old=%lib_name%_old.%lib_ext%
-
-if exist "%lib_old%" (
-	erase "%lib_old%"
-)
-
-if not exist "%lib_old%" (
-	if exist "%lib_current%" (
-		rename "%lib_current%" "%lib_old%"
-		rename "%lib_old%" "%lib_current%"
-	)
-)</Command>
+      <Command>call etc/update_output.bat .dll
+call etc/create_build_files.bat
+call etc/message.bat</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -177,28 +157,16 @@ if not exist "%lib_old%" (
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Windows-Release-32.lib</AdditionalDependencies>
+      <AdditionalDependencies>libwindows-release-32.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>cd $(TargetDir)
-
-set lib_ext=dll
-set lib_name=
-
-set lib_current=%lib_name%.%lib_ext%
-set lib_old=%lib_name%_old.%lib_ext%
-
-if exist "%lib_old%" (
-	erase "%lib_old%"
-)
-
-if not exist "%lib_old%" (
-	if exist "%lib_current%" (
-		rename "%lib_current%" "%lib_old%"
-		rename "%lib_old%" "%lib_current%"
-	)
-)</Command>
+      <Command>call etc/update_output.bat .dll
+call etc/create_build_files.bat
+call etc/message.bat</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -224,27 +192,16 @@ if not exist "%lib_old%" (
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Windows-Debug-64.lib</AdditionalDependencies>
+      <AdditionalDependencies>libwindows-debug-64.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>cd $(TargetDir)
-
-set dll_name=
-
-set dll_current=%dll_name%.dll
-set dll_old=%dll_name%_old.dll
-
-if exist "%dll_old%" (
-	erase "%dll_old%"
-)
-
-if not exist "%dll_old%" (
-	if exist "%dll_current%" (
-		rename "%dll_current%" "%dll_old%"
-		rename "%dll_old%" "%dll_current%"
-	)
-)</Command>
+      <Command>call etc/update_output.bat .dll
+call etc/create_build_files.bat
+call etc/message.bat</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -273,27 +230,16 @@ if not exist "%dll_old%" (
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Windows-Release-64.lib</AdditionalDependencies>
+      <AdditionalDependencies>libwindows-release-64.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>cd $(TargetDir)
-
-set dll_name=
-
-set dll_current=%dll_name%.dll
-set dll_old=%dll_name%_old.dll
-
-if exist "%dll_old%" (
-	erase "%dll_old%"
-)
-
-if not exist "%dll_old%" (
-	if exist "%dll_current%" (
-		rename "%dll_current%" "%dll_old%"
-		rename "%dll_old%" "%dll_current%"
-	)
-)</Command>
+      <Command>call etc/update_output.bat .dll
+call etc/create_build_files.bat
+call etc/message.bat</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call etc/message.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
