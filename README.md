@@ -7,4 +7,4 @@ Parent Directory
 └── Godot Game Template
 ```
 
-Static Library Builder: [Godot-CPP-Library](https://github.com/MasDhany/Godot-CPP-Library/tree/596a139894fb152cd66233bedddeb76d72a821ec)
+Static Library Builder: [Godot-CPP-Library](https://github.com/MasDhany/Godot-CPP-Library/tree/1719342629d1995836570fc991f85339e1d72b6f)
