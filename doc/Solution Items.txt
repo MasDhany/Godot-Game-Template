@@ -17,7 +17,7 @@
 │	└╴Android project properties
 ├╴property.general.props
 │	└╴General project properties
-└╴property.android.props
+└╴property.windows.props
 	└╴Windows project properties
 
 [dev]
